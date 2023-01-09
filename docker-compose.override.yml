@@ -4,10 +4,10 @@ services:
   web:
     build:
       args:
-        DEV_BUILD: 'true'
+        DEV_BUILD: 'false'
     env_file: .env
     environment:
-      DEV_BUILD: 'true'
+      DEV_BUILD: 'false'
     external_links:
       - ${PROXY_CONTAINER:-dinghy_http_proxy}:canvas.docker
     volumes:
@@ -18,10 +18,10 @@ services:
   work:
     build:
       args:
-        DEV_BUILD: 'true'
+        DEV_BUILD: 'false'
     env_file: .env
     environment:
-      DEV_BUILD: 'true'
+      DEV_BUILD: 'false'
     external_links:
       - ${PROXY_CONTAINER:-dinghy_http_proxy}:canvas.docker
     volumes:

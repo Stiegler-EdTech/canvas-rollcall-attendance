@@ -27,9 +27,9 @@ services:
       - redis
       - minio
     environment: &ENV
-      RAILS_ENV: development
+      RAILS_ENV: production
       ROLLCALL_ROLE: web
-      VIRTUAL_HOST: rollcall.docker
+      VIRTUAL_HOST: rollcall.canvas-dev.stiegleredtech.org
       DATABASE_URL: postgres://postgres:password@db:5432/rollcall_dev
       REDIS_URL: redis://redis:6379
       # SENTRY_DSN: 'https://foo:bar@sentry.insops.net/35'
@@ -41,11 +41,13 @@ services:
       AWS_REGION: 'us-east-1'
       AWS_BUCKET: bucket
       AWS_S3_ENDPOINT: http://minio.rollcall-attendance.docker
-      LTI_KEY: '12345'
+      LTI_KEY: 'TkE6YZjyGm46NVGQ7rbL3Lr9eikooFpEbhCKogC'
       LTI_SECRET: 'secret'
       LTI_REQUIRE_CANVAS: 'true'
       HEAP_ENABLED: 'true'
       HEAP_ANALYTICS_APP_ID: "123"
+    #ports:
+    #  - "0.0.0.0:8080:80"
     external_links:
       - ${PROXY_CONTAINER:-dinghy_http_proxy}:bucket.minio.rollcall-attendance.docker
 
